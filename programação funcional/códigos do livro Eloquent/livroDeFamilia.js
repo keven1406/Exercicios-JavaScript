@@ -45,7 +45,7 @@ console.log(ancestry.filter(person => person.born > 1900 && person.born < 1925))
 console.log(ancestry.filter(person => person.father === "Carel Haverbeke")) 
 const overNinety = ancestry.filter(person => person.died - person.born > 90)
 console.log(overNinety.map(person => person.name)) 
-// voltando
+//voltando
 ancestry.reduce((min, cur) =>  { 
 	console.log('mais valeho', min)
 	if (cur.born < min.born) return cur
