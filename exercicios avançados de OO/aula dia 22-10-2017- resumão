@@ -1,0 +1,33 @@
+hora 9: 30
+
+var coelho = {}
+coelho.diz = function(linha) {
+	console.log("O coelho diz '" + linha + "'")
+}
+coelho.diz("Estou vivo")
+
+//------ Mini Chat -----------
+
+var chat = {}
+var falou = function(conversa) {
+  return console.log(this.nome + ' -> ' + conversa)
+}
+
+//----- Pessoa 1 -----
+
+chat.pessoa1 = {}
+chat.pessoa1.fala = falou
+chat.pessoa1.nome = "Sheila"
+
+chat.pessoa1.fala('Olá, seja bem vindo!')
+
+//----- Pessoa 2 -----
+
+chat.pessoa2 = {}
+chat.pessoa2.fala = falou
+chat.pessoa2.nome = "Elias"
+
+chat.pessoa2.fala('Obrigado, espero que possamos nos divertir juntos!')
+console.log(chat)
+
+//----- Retirar água da lagoa ------
