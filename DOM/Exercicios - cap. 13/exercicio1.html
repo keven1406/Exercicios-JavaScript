@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang = 'pt-br'>
+	<head>
+		<title>Mounts</title>
+		<meta charset = 'UTF-8'/>
+		<style>
+ 			 /* Define uma visualização mais limpa para tabelas */
+			table  { 
+				border-collapse: collapse;
+			}
+ 			td, th { 
+ 				border: 1px solid black; padding: 3px 8px;
+ 			}
+  			th { 
+  				text-align: left;
+  			}
+  			.moverParaDireita {
+  				text-align: right;
+  			}
+		</style>
+	</head>
+	<body>
+
+		<script>
+			//Construir uma tabela com todos os montes de um array de objetos. 
+			//O que temos?
+			//Temos um array com objjeto, cada objeto representa um monte, cada objeto possui tres propriedades com nome, altura e país.
+			//nossa tabela terá um cabeçalho de ths, com os dados referente ao cabeçalho a baixo.
+			
+			//Etapas:
+			//estrutura
+			//inserir dados
+			//Mostrar o resultado
+
+			//ESTRUTURA
+			//Criar uma tabela e adicionar ao corpo do documento
+			//Após isso, verificar numero de propriedades que os objetos de montain tem com Object.keys (nesse caso só verificaremos 1) e receberemos um array com todas a propriedades.
+			//recebendo o array com propriedades e chamaremos map para cada propriedade, onde adicionaremos o th na tr especificada. Cada propriedade receberá um "th" (table head).
+			//------- feito --------//
+			//Feito isso, teremos uma linha com o cabecalho.
+			//Agora é hora de criar o corpo. O corpo será criado por um map que representará as linhas. Esse map está percorrendo o array Montains para criar uma linha para cada objeto. Nesse map criaremos as tr para cada objeto e outro map percorrendo o objeto em questão de MOUNTAINS.
+			//Esse segundo map criará tds para cada propriedade do objeto de MOUNTAINS, ao mesmo tempo que adicionara ele ao tr pertencente a ele.
+
+			//Por ser parte do dom, inserir dados e automaticamente feito enquanto colocamos a estrutura, mostrar o resultado tambem, já que é em tempo real.
+
+
+			var MOUNTAINS = [
+			  {name: "Kilimanjaro", height: 5895, country: "Tanzania"},
+			  {name: "Everest", height: 8848, country: "Nepal"},
+			  {name: "Mount Fuji", height: 3776, country: "Japan"},
+			  {name: "Mont Blanc", height: 4808, country: "Italy/France"},
+			  {name: "Vaalserberg", height: 323, country: "Netherlands"},
+			  {name: "Denali", height: 6168, country: "United States"},
+			  {name: "Popocatepetl", height: 5465, country: "Mexico"}
+			];
+
+			const tabela = document.createElement('table')
+			const linhaDoCabecalho = document.createElement('tr')
+			tabela.appendChild(linhaDoCabecalho)
+			const conteudoCabecalho = Object.keys(MOUNTAINS[0])
+			conteudoCabecalho.map(function (conteudo) {
+				let cabecalho = document.createElement('th')
+				let texto = document.createTextNode(conteudo)
+				cabecalho.appendChild(texto)
+				linhaDoCabecalho.appendChild(cabecalho)
+				return cabecalho
+			})
+			//----- corpo -----//
+			MOUNTAINS.map(function (linhasDaTabela) {
+				let linhaDoCorpo = document.createElement('tr')
+				conteudo = Object.values(linhasDaTabela)
+				conteudo.map(function (valores) {
+					let dadosDaTabela = document.createElement('td')
+					if (typeof valores === 'number') dadosDaTabela.className = 'moverParaDireita'
+					let texto = document.createTextNode(valores)
+					dadosDaTabela.appendChild(texto)
+					linhaDoCorpo.appendChild(dadosDaTabela)
+				})
+				tabela.appendChild(linhaDoCorpo)
+				return linhaDoCorpo 
+			})
+			document.body.appendChild(tabela)
+		</script>
+	</body>
+</html> 

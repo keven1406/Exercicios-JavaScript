@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+	<head>
+		<title>Gato Flutuador</title>
+		<meta charset = "UTF-8"/>
+	</head>
+	<body>
+		<audio src = "netjuu.mp3" autoplay = "true"></audio>
+		<p style="text-align: center">
+			<img src = "img/cat.jpg" style = "position: relative"/>
+		</p>
+		<script>
+			var cat = document.querySelector("img")
+			var angle = 0, lastTime = null
+			function animate(time) {
+				if (lastTime != null)
+					angle += (time - lastTime) * 0.001
+				lastTime = time
+				cat.style.top = (Math.sin(angle) * 20) + "px"
+				cat.style.left = (Math.cos(angle) * 200) + "px"
+				requestAnimationFrame(animate)
+			}
+			requestAnimationFrame(animate)
+		</script>
+	</body>
+</html>

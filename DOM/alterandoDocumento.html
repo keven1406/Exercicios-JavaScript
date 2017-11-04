@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang = 'pt-br'>
+	<head>
+		<title>Alterando o Documento</title>
+		<meta charset = 'UTF-8'/>
+		<meta name = 'viewport' content = 'width=device-width'/>
+	</head>
+	<body>
+		<p>Um</p>
+		<p>Dois</p>
+		<p>Três</p>
+		<script>
+			var paragraphs = document.body.getElementsByTagName('p')
+			document.body.insertBefore(paragraphs[2], paragraphs[0])
+			var node = document.createElement('p')
+			var textNode = document.createTextNode('Water')
+			node.appendChild(textNode)
+			document.body.appendChild(node)
+			var newNode = document.createElement('a')
+			var newTextNode = document.createTextNode('Link')
+			newNode.append(newTextNode)
+			document.body.replaceChild(newNode, paragraphs[0])
+		</script>
+	</body>
+</html>

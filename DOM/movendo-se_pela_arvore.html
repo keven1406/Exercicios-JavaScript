@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang='pt-br' class = 'elias'>
+	<head>
+		<title>Teste</title>
+		<meta charset = 'UTF-8'/>
+	</head>
+	<body>
+		<div>
+			<p>Treinando com o DOM</p>
+		</div>
+		<a href = 'http://www.google.com'>clique aqui</a>
+		<p>Aprendendo sobre o DOOM</p>
+		<script>
+			function talksAbout(node, string) {
+				if (node.nodeType == document.ELEMENT_NODE) {
+					for (var i = 0; i < node.childNodes.length; i++) {
+						if (talksAbout(node.childNodes[i], string))
+							return true
+					}
+					return false
+				}
+				else if (node.nodeType == document.TEXT_NODE) {
+					return node.nodeValue.indexOf(string) > -1
+				}
+			}
+			console.log(talksAbout(document.body, "book"))
+			console.log(document.body)
+			console.log("tem book no documentElement? ", "book" in document.body)
+			console.log(document.documentElement.childNodes)
+			console.log(document.URL)
+			console.log(document.anchors.length)
+			console.log(document.body.lastChild.previousSibling)
+			console.log(document.body.lastChild.parentNode)
+			console.log(document.ELEMENT_NODE)
+			console.log(document.TEXT_NODE)
+			console.log(talksAbout(document.body, "Livraria cultura"))
+			console.log('Tipo do Nó: ', document.body.nodeType)
+		</script>
+	</body>
+</html>
