@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = 'pt-br'>
+	<head>
+		<title>Elementos por nome de Tag</title>
+		<meta charset = 'UTF-8'/>
+	</head>
+	<body>
+		<h1>Cabeçalho com um elemento <span>span</span></h1>
+		<p>Um parágrafo com<span>um</span>, <span>dois</span> spans.</p>		
+		<script>	
+			//transformarEmArray:: objeto -> array
+			function transformarEmArray(item) {
+				let arrayDeFilhos = []
+				for(let contador = item.length - 1; contador >= 0; contador--)
+					arrayDeFilhos.unshift(item[contador])
+				return arrayDeFilhos
+			}
+			//retirarNosDeTexto:: array
+			function retirarNosDeTexto(no) {
+				return no.filter(function (elemento) {
+					return elemento.nodeType === 1
+				})
+			}
+			//percorrerArrayDeFilhos:: array -> array
+			function porNomeDaTag(node, nomeDaTag) {
+				let filhoEspecifico = []
+				function verificarFilhos(filho, indice) {
+					if (filho[indice] === undefined)
+						return null
+					else if ((filho[indice].tagName.toLowerCase()) == nomeDaTag) {
+						filhoEspecifico.push(filho[indice])
+						verificarFilhos(filho, indice + 1)
+					}
+					else if (filho[indice].nodeType === 1) {
+ 						verificarFilhos(retirarNosDeTexto(transformarEmArray(filho[indice].childNodes)), 0)
+ 						verificarFilhos(filho, indice + 1)
+					}		
+				}
+				verificarFilhos(retirarNosDeTexto(transformarEmArray(node.childNodes)), 0)
+				return filhoEspecifico
+			}	
+			console.log(porNomeDaTag(document.body, 'p'))
+			console.log(porNomeDaTag(document.body, 'span'))
+		</script>
+	</body>
+</html>

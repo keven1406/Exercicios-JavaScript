@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<title>Teste</title>
+	<meta charset = "UTF-8"/>
+	<style>
+  strong {
+    font-style: italic;
+    color: grey;
+  }
+  .subtle {
+  color: grey;
+  font-size: 80%;
+}
+#header {
+  background: blue;
+  color: white;
+}
+/* Elementos p, com classes a e b, e id main */
+p.a.b#main {
+  margin-bottom: 20px;
+  color: red;
+}
+div.seletora {
+	color: red;
+}
+.seletora {
+	color: blue;
+}
+</style>
+
+<body>
+	<!-- <p  id = "main"> Olá </p>
+	<p  id = "main">Agora <strong style = 'color: green;'>textos com tag strong</strong> são itálicos e cinza.</p>
+	<p id = "para">
+		Texto bonito
+	</p>
+
+	<p class = 'seletora'>Paragrafo de teste</p>
+
+	<div class = 'seletora'>
+		Hello, Color!
+	</div> -->
+
+
+	<p>Se você sair por aí caçando
+	<span class="animal">coelhos</span></p>
+	<p>E você souber que vai cair</p>
+	<p>Diga à eles que <span class="character">enquanto fumava narguilé,
+ 	<span class="animal">uma lagarta</span></span></p>
+	<p class = "animal">Lhe deu a ordem</p>
+	<a id = "haha">Link</a>
+	<!-- <a>Amedoin</a> -->
+	<script>
+		/*
+		var para = document.getElementById("para")
+		console.log(para.style.color)
+		para.style.color = "magenta"
+		para.style.fontWeight = "bold"
+		*/
+
+		function count(seletor) {
+			return document.querySelectorAll(seletor)
+		}
+		console.log(count("p"))
+		console.log(count(".animal"))
+		console.log(count("p.animal"))
+		console.log(count("p > .animal"))
+		console.log('Encontrou: ', document.querySelector("a"))
+		var encontrado = document.getElementById("haha")
+		var ancora = document.getElementsByTagName("a")
+		
+
+		//console.log('Com tag name antes da remocao: ', ancora)
+		//document.body.removeChild(ancora[0])
+		//console.log('Tag name depois da remocao: ', document.getElementsByTagName("a"))
+
+		console.log('Com querySelectorAll ANTES: ', document.querySelectorAll("a"))
+		document.body.removeChild(ancora[0])
+		console.log('Com querySelectorAll Depois', document.querySelectorAll("a"))
+
+
+		console.log('Encontrou: ', document.querySelectorAll("a"), ' ----------', document.getElementById("haha"))
+
+	</script>
+</body>
+</html>

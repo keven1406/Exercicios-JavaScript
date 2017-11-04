@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = 'pt-br'>
+	<head>
+		<title>Estudo de DOM</title>
+		<meta charset = 'UTF-8'/>
+	</head>
+	<body>
+		<script>
+			const caixa = document.createElement('div')
+			document.body.appendChild(caixa)
+			caixa.style.height = '900px'
+			caixa.style.width = '900px'
+			caixa.style.background = 'red'
+			caixa.setAttribute('dataTemperada', 'Comeu alho, mano!')
+			caixa.id = 'vemParaCaixa'
+			
+			caixa.setAttribute('dataTemperada', 'já era')
+			caixa.dataTemperada = 'comeuuuu'
+			const pegarAtributoDaCaixa = caixa.getAttribute('dataTemperada')
+
+			document.write(function () {
+				if (pegarAtributoDaCaixa === 'Comeu alho, mano!')
+					return 'Agora ficarei para sempre com gosto de alho na boca!'
+				else
+					return 'Não comeu alho não, vei! To beijável!'
+			}())
+
+			const height = caixa.style.height
+			const width = caixa.style.width
+			console.log(height.length)
+			console.log(height.slice(0,height.length-2))
+			
+			//larguraDaArea:: number -> number -> number
+			function larguraDaArea(largura) {
+				return function (altura) {
+					return largura * altura
+				}
+			}
+			calculandoArea = larguraDaArea(
+				Number(width.slice(
+					0, width.length - 2
+					)
+				)
+			)
+			console.log(
+				calculandoArea(
+					Number(
+						width.slice(
+							0, width.length - 2
+						)
+					)
+				)
+			)
+
+			console.log(pageXOffset)
+		
+		</script>
+	</body>
+</html>

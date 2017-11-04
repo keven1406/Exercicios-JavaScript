@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang = 'pt-br'>
+	<head>
+		<title>getElement</title>
+		<meta charset = 'UTF-8'/>
+	</head>
+	<body>
+		<a href = '#'>Link qualquer</a>
+		<a href = '#'>Segundo link</a>
+		<div>
+			<a href = '#'>Terceiro link neto</a>
+		</div>
+		<script>
+			var title = document.head.getElementsByTagName("title")[0]
+			console.log(title.textContent)
+			var link = document.body.getElementsByTagName('a')
+			console.log(link)
+		</script>
+	</body>
+</html>

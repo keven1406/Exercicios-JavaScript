@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = 'pt-br'>
+	<head>
+		<title>Teste de nome de tag</title>
+		<meta charset = 'UTF-8'/>
+	</head>
+	<body>
+		<div>
+			<p>Hello, i'm Elias and i'm a computer programmer</p>
+		</div>
+		<script>
+			var nodes = document.body.childNodes
+			var objeto = []
+			for (var cont = nodes.length; cont > 0; cont--)
+				objeto.unshift(nodes[cont])
+			console.log(nodes)
+			console.log(objeto.map(function (item) {
+				if ((item.tagName === 'DIV') && (typeof item === 'object')) return item
+				else return 'nada'
+			})
+			)
+		</script>
+	</body>
+</body>

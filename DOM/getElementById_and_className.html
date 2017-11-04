@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang = 'pt-br'>
+	<head>
+		<title>getElement</title>
+		<meta charset = 'UTF-8'/>
+		<style>
+			#um {
+				color: 'red'
+			}
+		</style>
+	</head>
+	<body>
+		<p>Minha avestruz Gertrude: </p>
+		<p><img id = "gertrude" src =  "img/ostrich.png" alt='Gertrude'></p>
+		<p class = 'charact'>Ela é muito bonita e graciosa</p>
+		<p>Um diz quiz cozinhar ela, mas minha concienica pesou!</p>
+		<p class = 'charact'>Mas me arrependi e hoje ela é minha melhor amiga, graças a Deus!</p>
+		<p class = 'charact'>Não posso esperar para chegar em casa</p>
+		<p class = 'charact'>Eu abraço ela toda manha</p>
+		<p class = 'charact'>Somos felizes, hehehehe</p>
+		<div id ='um'> Eluias</div>
+		<div id = 'um'>KLuiza</div>
+		<script>
+			var ostrich = document.getElementById('gertrude')
+			console.log(ostrich.src)
+			var character = document.body.getElementsByClassName('charact')
+			console.log(character)
+			for (var count = 0; count < character.length; count++) {
+				if (count % 2 === 0)
+					character[count].style.color = 'red'
+				else
+					character[count].style.color = 'green'
+			}
+			document.getElementById('um').style.color = 'brown'
+		</script>
+	</body>
+</html>

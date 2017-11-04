@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang = 'pt-br'>
+  <head>
+    <title>Radio Anime</title>
+    <meta charset = 'UTF-8'/>
+    <style>
+      ul {
+        list-style = none;
+      }
+      li:nth-child(2n) {
+        color: red
+      }
+    </style>
+  </head>
+  <body>
+    <audio src = 'musica/Gamers!.mp3'  autoplay='true'>
+      <p>Your browser unsupported the element audio</p>
+    </audio>
+    <ul id = 'listaDeMusica'></ul>
+
+
+    <script>
+			
+      //--------- make music list ------------
+
+      const listMusic = [
+			  {name: 'Gamers!', link: 'musica/' + 'Gamers!' + '.mp3' },
+			  {name: 'Denpa Kyoushi', link: 'musica/' + 'Denpa Kyoushi' + '.mp3'},
+			  {name: 'toradora', link: 'musica/' + this.name + '.mp3'}
+	  ]
+
+      const menu = document.getElementById('listaDeMusica')
+
+      listMusic.forEach(music => {
+        let listItemNode = document.createElement('li')
+		let ancorNode = document.createElement('a')
+		ancorNode.prototype = music
+		ancorNode.onclick = function () {
+			let song = document.getElementsByTagName('audio')
+			song[0].loop = 'true'
+			song[0].src = music.link
+			song[0].autoplay = 'true'
+			console.log(music.link)
+		}
+        let musicName = document.createTextNode(music.name)
+        ancorNode.appendChild(musicName)
+		listItemNode.appendChild(ancorNode)
+        menu.appendChild(listItemNode)
+      })
+		console.log(document.documentElement)
+    </script>
+  </body>
+</html>

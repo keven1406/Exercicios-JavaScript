@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<title>teste</title>
+	<body>
+		<script>
+
+function liveDebugUi() {
+	var divNova = document.createElement('div')
+	var divFilha = document.createElement('div')
+
+	document.body.appendChild(divNova)
+	divNova.className = 'comeuBola'
+	document.getElementsByClassName('comeuBola')[0].appendChild(divFilha)
+
+}
+window.addEventListener("load", liveDebugUi)
+</script>
+</body>
+</html>

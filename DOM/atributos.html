@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang = 'pt-br'>
+	<head>
+		<title>Alterando o Documento</title>
+		<meta charset = 'UTF-8'/>
+		<meta name = 'viewport' content = 'width=device-width'/>
+	</head>
+	<body>
+		<p data-classified='secret'>O código de lançamento é 00000000.</p>
+		<p data-classified='unclassified'>Eu tenho dois pés.</p>
+		<p>Aqui está, a função identidade: </p>
+		<pre data-language='javascript'>
+			function id(x) {
+				return x; 
+			}
+			var ana = 8;
+		</pre>
+		<script>
+			/*var paras = document.body.getElementsByTagName('p')
+			Array.prototype.forEach.call(paras, function(para) {
+				if (para.getAttribute('data-classified') == 'secret')
+					para.parentNode.removeChild(para)
+			})
+			*/
+			function highlightCode(node, keywords) {
+				var text = node.textContent
+				node.textContent = ""
+
+				var match, pos = 0
+				while (match = keywords.exec(text)) {
+					var before = text.slice(pos, match.index)
+					node.appendChild(document.createTextNode(before))
+					var strong = document.createElement('span')
+					strong.appendChild(document.createTextNode(match[0]))
+					strong.style.color = 'green'
+					node.appendChild(strong)
+					pos = keywords.lastIndex
+				}
+				var after = text.slice(pos)
+				node.appendChild(document.createTextNode(after))
+			}
+
+			var languages = {
+				javascript: /\b(function|return|var)\b/g  // … etc 
+			};
+
+			function highlightAllCode() {
+				var pres = document.body.getElementsByTagName('pre')
+				for (var i = 0; i < pres.length; i++) {
+					var pre = pres[i]
+					var lang = pre.getAttribute('data-language')
+					if (languages.hasOwnProperty(lang))
+						highlightCode(pre, languages[lang])
+				}
+			}
+
+			highlightAllCode();
+		</script>
+	</body>
+</html>
